@@ -1,4 +1,28 @@
 # Reference : https://stock-market-prediction-2piq85jecgi.streamlit.app/
+import subprocess
+
+def ensure_packages_installed():
+    required_packages = [
+        "streamlit",
+        "streamlit-option-menu",
+        "yfinance",
+        "pandas-datareader",
+        "pandas",
+        "numpy",
+        "matplotlib",
+        "scikit-learn",
+        "tensorflow",
+        "mplfinance",
+        "plotly"
+    ]
+
+    for package in required_packages:
+        try:
+            subprocess.check_call(["pip", "install", package])
+        except subprocess.CalledProcessError as e:
+            print(f"Error installing {package}: {e}")
+
+ensure_packages_installed()
 
 import streamlit as st
 from streamlit_option_menu import option_menu
